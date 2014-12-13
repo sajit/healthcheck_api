@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "mnce",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "CamelsBack",
+    "description": "The description of the application"
+  }
+}

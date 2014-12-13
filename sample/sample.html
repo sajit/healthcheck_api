@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+   <h1>This is a sample web page that calls the chrome extension API</h1>
+    <div id="configJsonDiv">{
+        "whitelist": [
+        "https://google.com",
+        "https://google.com/sdss",
+        "https://twitter.com",
+        "https://xkcd.com",
+        "https://dsfds.ewew"
+        ],
+        "screenResolution": {
+        "height": 768,
+        "width": 1024
+        },
+        "browserMatrix": [
+        {
+        "os": {
+        "name": "iOS",
+        "version": 7
+        },
+        "browser": {
+        "name": "Safari",
+        "version": 7
+        }
+        },
+        {
+        "os": {
+        "name": "iOS",
+        "version": 7
+        },
+        "browser": {
+        "name": "Chrome",
+        "version": 32
+        }
+        },
+        {
+        "os": {
+        "name": "MacOSX"
+        },
+        "browser": {
+        "name": "Chrome",
+        "version": 32
+        }
+        }
+        ]
+        }</div>
+
+   <hr/>
+   <hr/>
+   <div id="diagnosticsResponseDiv"></div>
+   <script type="text/javascript">
+       console.log('Inline Js');
+       document.getElementById("configJsonDiv").addEventListener("click",
+               function() {
+                   var content = this.innerHTML;
+                   try{
+                       JSON.parse(content);
+                   }
+                   catch(e){
+                       alert("Bad Json");
+                       return;
+                   }
+                   window.postMessage({ type: "FROM_PAGE", text: content }, "*");
+               }, false);
+
+
+   </script>
+</body>
+</html>
