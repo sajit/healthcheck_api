@@ -68,7 +68,8 @@ Have content in the following format. An example as shown below.
 ```
 
 
-And do a ```window.postMessage();``` to which the contentscript.js has a listener
+And do a ``` window.postMessage({ type: "CONFIG_CHECK", text: content }, "*");```  where content is the stringifed JSON object
+to which the contentscript.js has a listener
 
 Have an html element **diagnosticsResponseDiv** that will get updated with the results of the diagnosis.
 
